@@ -2,10 +2,17 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
+    //期限日を整形する
+    public function getFormattedDueDateAttribute(){
+        return Carbon::createFromFoemat('Y-m-d' , $this->atrributes['due_date'])
+            ->format('Y-m-d');
+    }
+
     const STATUS = [
         1 => [ 'label' => '未着手' , 'class' => 'label-danger' ],
         2 => [ 'label' => '着手' , 'class' => 'lavel-info' ],
