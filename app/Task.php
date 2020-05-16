@@ -9,7 +9,7 @@ class Task extends Model
 {
     //期限日を整形する
     public function getFormattedDueDateAttribute(){
-        return Carbon::createFromFoemat('Y-m-d' , $this->atrributes['due_date'])
+        return Carbon::createFromFormat('Y-m-d' , $this->attributes['due_date'])
             ->format('Y-m-d');
     }
 
