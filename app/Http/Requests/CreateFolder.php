@@ -24,7 +24,7 @@ class CreateFolder extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|maw:20',
+            'title' => 'required|max:20',
             'max' => [
                 'string' => ':attribute は :max 文字以内で入力してください。',
             ]
